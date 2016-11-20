@@ -48,7 +48,7 @@
                     <div class="row">
                         <!-- Logo -->
                         <div class="logo">
-                            <a href="index.html" title="">
+                            <a href="/" title="">
                                 <img src="assets/img/logo.png" alt="Logo" />
                             </a>
                         </div>
@@ -65,7 +65,7 @@
                             <div class="visible-lg">
                                 <ul id="hornavmenu" class="nav navbar-nav">
                                     <li>
-                                        <a href="index.html" class="fa-home active">Home</a>
+                                        <a href="index.php" class="fa-home active">Home</a>
                                     </li>
                                     <li>
                                         <a href="clubs.php" class="fa-gears">Clubs & Societies</a>

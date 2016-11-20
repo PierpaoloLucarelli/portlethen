@@ -49,8 +49,8 @@ function getCalender($year = '',$month = '')
 		</div>
 		<div id="calender_section_bot">
 			<ul>
-			<?php 
-				$dayCount = 1; 
+			<?php
+				$dayCount = 1;
 				for($cb=1;$cb<=$boxDisplay;$cb++){
 					if(($cb >= $currentMonthFirstDay+1 || $currentMonthFirstDay == 7) && $cb <= ($totalDaysOfMonthDisplay)){
 						//Current date
@@ -58,8 +58,9 @@ function getCalender($year = '',$month = '')
 						$eventNum = 0;
 						//Include db configuration file
 						include 'dbConfig.php';
+						$clubId = $_GET["clubid"];
 						//Get number of events based on the current date
-						$result = $db->query("SELECT title FROM events WHERE date = '".$currentDate."' AND status = 1");
+						$result = $db->query("SELECT title FROM events WHERE date = '".$currentDate."' AND status = 1 AND clubID=".$clubId);
 						$eventNum = $result->num_rows;
 						//Define date cell color
 						if(strtotime($currentDate) == strtotime(date("Y-m-d"))){
@@ -73,14 +74,14 @@ function getCalender($year = '',$month = '')
 						echo '<span>';
 						echo $dayCount;
 						echo '</span>';
-						
+
 						//Hover event popup
 						echo '<div id="date_popup_'.$currentDate.'" class="date_popup_wrap none">';
 						echo '<div class="date_window">';
 						echo '<div class="popup_event">Events ('.$eventNum.')</div>';
 						echo ($eventNum > 0)?'<a href="javascript:;" onclick="getEvents(\''.$currentDate.'\');">view events</a>':'';
 						echo '</div></div>';
-						
+
 						echo '</li>';
 						$dayCount++;
 			?>
@@ -102,7 +103,7 @@ function getCalender($year = '',$month = '')
 				}
 			});
 		}
-		
+
 		function getEvents(date){
 			$.ajax({
 				type:'POST',
@@ -114,7 +115,7 @@ function getCalender($year = '',$month = '')
 				}
 			});
 		}
-		
+
 		function addEvent(date){
 			$.ajax({
 				type:'POST',
@@ -126,15 +127,15 @@ function getCalender($year = '',$month = '')
 				}
 			});
 		}
-		
+
 		$(document).ready(function(){
 			$('.date_cell').mouseenter(function(){
 				date = $(this).attr('date');
 				$(".date_popup_wrap").fadeOut();
-				$("#date_popup_"+date).fadeIn();	
+				$("#date_popup_"+date).fadeIn();
 			});
 			$('.date_cell').mouseleave(function(){
-				$(".date_popup_wrap").fadeOut();		
+				$(".date_popup_wrap").fadeOut();
 			});
 			$('.month_dropdown').on('change',function(){
 				getCalendar('calendar_div',$('.year_dropdown').val(),$('.month_dropdown').val());
@@ -190,7 +191,7 @@ function getEvents($date = ''){
 	if($result->num_rows > 0){
 		$eventListHTML = '<h2>Events on '.date("l, d M Y",strtotime($date)).'</h2>';
 		$eventListHTML .= '<ul>';
-		while($row = $result->fetch_assoc()){ 
+		while($row = $result->fetch_assoc()){
             $eventListHTML .= '<li>'.$row['title'].'</li>';
         }
 		$eventListHTML .= '</ul>';

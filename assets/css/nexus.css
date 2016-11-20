@@ -19,7 +19,7 @@ TABLE OF CONTENTS
 	- Testimonials
 	- Accordions
 	- Tabs
-	- Progress Bars 
+	- Progress Bars
 	- Panels
 	- Social Icons
 	- Carousel
@@ -1024,7 +1024,7 @@ p.site-slogan {
 .slicknav_menu {
   *zoom: 1;
 }
-/* 
+/*
     User Default Style
     Change the following styles to modify the appearance of the menu.
 */
@@ -1539,7 +1539,8 @@ a.slicknav_item [class*=" fa-"] {
   overflow: hidden;
 }
 .portfolio-group figure img {
-  max-width: 100%;
+  width: 100%;
+  height: 200px;
   display: block;
   position: relative;
   z-index: 0;
