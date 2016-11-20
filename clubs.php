@@ -257,7 +257,7 @@
                                         echo "</div>";
                                     }
                                 }
-                                mysql_close();
+                                mysqli_close($db);
                             ?>
                         </div>
                     </div>

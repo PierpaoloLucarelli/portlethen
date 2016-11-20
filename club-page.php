@@ -238,7 +238,7 @@
                                 $clubId = $_GET["clubid"];
                                 include 'dbConfig.php';
 
-                                $result = $db->query("SELECT clubs.clubName, genre.name, genre.description, contactinfo.*
+                                $result = $db->query("SELECT clubs.*, genre.name, genre.description, contactinfo.*
                                     FROM clubs INNER JOIN genre ON clubs.genreID=genre.genreID
                                     INNER JOIN contactinfo on clubs.infoID=contactinfo.infoID
                                     where clubs.clubID={$clubId}");
@@ -247,7 +247,7 @@
                                     <h2>'.$row['clubName'].'</h2>
                                     <div class="row">
                                         <div class="col-md-6 animate fadeIn">
-                                            <img src="assets/img/fillers/aboutme.jpg" alt="about-me" class="margin-top-10">
+                                            <img src="'.$row['clubImage'].'" alt="about-me" class="margin-top-10">
                                             <ul class="list-inline about-me-icons margin-vert-20">
                                                 <li>
                                                     <a href="#">
@@ -272,26 +272,28 @@
                                             </ul>
                                         </div>
                                         <div class="col-md-6 margin-bottom-10 animate fadeInRight">
-                                            <h3 class="padding-top-10 pull-left">Jack White
-                                                <small>- Manager</small>
+                                            <h3 class="padding-top-10 pull-left">'.$row['clubName'].'
+                                                <small>-'.$row['name'].'</small>
                                             </h3>
                                             <div class="clearfix"></div>
                                             <h4>
-                                                <em>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo facilis est et expedita distinctio minus id quod maxime placeat facere possimus.</em>
+                                                <em>'.$row['clubDesc'].'</em>
                                             </h4>
                                             <p>Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
                                                 doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae.</p>
                                             <p>Voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur
                                                 aut odit aut fugit, sed quia consequuntur magni. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
                                         </div>
+                                    </div>
+
+                                    <hr>
+                                    <div class="row animate fadeInUp">
+                                        <h2 class="text-center margin-top-10">'.$row['description'].'</h2>
+                                        <p class="text-center margin-bottom-30">Aenean venenatis egestas iaculis. Donec non urna quam. Nullam consectetur condimentum dolor at bibendum.</p>
                                     </div>';
                                 }
+                                mysqli_close($db);
                             ?>
-                            <hr>
-                            <div class="row animate fadeInUp">
-                                <h2 class="text-center margin-top-10">LOOL ulla in enim quis ipsum pulvinar imperdiet vitae nec velit..</h2>
-                                <p class="text-center margin-bottom-30">Aenean venenatis egestas iaculis. Donec non urna quam. Nullam consectetur condimentum dolor at bibendum.</p>
-                            </div>
                             <hr class="margin-bottom-40">
                         </div>
                     </div>
