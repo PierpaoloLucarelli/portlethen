@@ -137,7 +137,7 @@
                                     FROM clubs INNER JOIN genre ON clubs.genreID=genre.genreID
                                     INNER JOIN contactinfo on clubs.infoID=contactinfo.infoID
                                     where clubs.clubID={$clubId}");
-                                $row = $result->fetch_assoc()
+                                $row = $result->fetch_assoc();
                                     echo '
                                     <h2>'.$row['clubName'].'</h2>
                                     <div class="row">
