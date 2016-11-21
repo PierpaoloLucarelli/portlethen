@@ -1,4 +1,4 @@
-<?php include_once('functions.php'); ?>
+<!-- <?php include_once('functions.php'); ?> -->
 <!-- === BEGIN HEADER === -->
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
