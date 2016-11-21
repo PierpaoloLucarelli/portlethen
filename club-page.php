@@ -1,4 +1,4 @@
-<!-- <?php include_once('functions.php'); ?> -->
+<?php include_once('functions.php'); ?>
 <!-- === BEGIN HEADER === -->
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
@@ -133,11 +133,12 @@
                             <?php
                                 $clubId = $_GET["clubid"];
                                 include 'dbConfig.php';
-
-                                $result = $db->query("SELECT clubs.*, genre.name, genre.description, contactinfo.*
-                                    FROM clubs INNER JOIN genre ON clubs.genreID=genre.genreID
-                                    INNER JOIN contactinfo on clubs.infoID=contactinfo.infoID
-                                    where clubs.clubID={$clubId}");
+                                $result = 0;
+//                                 $result = $db->query("SELECT clubs.*, genre.name, genre.description, contactinfo.*
+//                                     FROM clubs INNER JOIN genre ON clubs.genreID=genre.genreID
+//                                     INNER JOIN contactinfo on clubs.infoID=contactinfo.infoID
+//                                     where clubs.clubID={$clubId}");
+                            if($result!=0){
                                 while($row = $result->fetch_assoc()){
                                     echo '
                                     <h2>'.$row['clubName'].'</h2>
@@ -187,7 +188,7 @@
                                         <h2 class="text-center margin-top-10">'.$row['description'].'</h2>
                                         <p class="text-center margin-bottom-30">Aenean venenatis egestas iaculis. Donec non urna quam. Nullam consectetur condimentum dolor at bibendum.</p>
                                     </div>';
-                                }
+                                }} else {echo "Working"}
                                 mysqli_close($db);
                             ?>
                             <hr class="margin-bottom-40">
@@ -196,7 +197,7 @@
                 </div>
             </div>
             <div id="calendar_div">
-<!-- 	               <?php echo getCalender(); ?> -->
+	               <?php echo getCalender(); ?>
             </div>
             <!-- === END CONTENT === -->
             <!-- === BEGIN FOOTER === -->
