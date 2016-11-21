@@ -196,7 +196,7 @@
                 </div>
             </div>
             <div id="calendar_div">
-	               <?php echo getCalender(); ?>
+<!-- 	               <?php echo getCalender(); ?> -->
             </div>
             <!-- === END CONTENT === -->
             <!-- === BEGIN FOOTER === -->
