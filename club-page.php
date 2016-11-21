@@ -137,7 +137,7 @@
                                     FROM clubs INNER JOIN genre ON clubs.genreID=genre.genreID
                                     INNER JOIN contactinfo on clubs.infoID=contactinfo.infoID
                                     where clubs.clubID={$clubId}");
-                                while($row = $result->fetch_assoc()){
+                                $row = $result->fetch_assoc()
                                     echo '
                                     <h2>'.$row['clubName'].'</h2>
                                     <div class="row">
@@ -186,7 +186,7 @@
                                         <h2 class="text-center margin-top-10">'.$row['description'].'</h2>
                                         <p class="text-center margin-bottom-30">Aenean venenatis egestas iaculis. Donec non urna quam. Nullam consectetur condimentum dolor at bibendum.</p>
                                     </div>';
-				}
+				
                                 mysqli_close($db);
                             ?>
                             <hr class="margin-bottom-40">
