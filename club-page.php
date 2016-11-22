@@ -186,7 +186,23 @@
                                         <h2 class="text-center margin-top-10">'.$row['description'].'</h2>
                                         <p class="text-center margin-bottom-30">Aenean venenatis egestas iaculis. Donec non urna quam. Nullam consectetur condimentum dolor at bibendum.</p>
                                     </div>';
-				
+
+                                    if(isset($_COOKIE['user'])){
+                                        $user = $_COOKIE['user'];
+
+                                        $result = $db->query("SELECT * FROM clubadmins WHERE clubID={$row['clubID']}");
+                                        $isAdmin = false;
+                                        while($newrow = $result->fetch_assoc()){
+                                            if($newrow['userID']==$user){
+                                                $isAdmin=true;
+                                                break;
+                                            }
+                                        }
+                                        if($isAdmin){
+                                            echo '<button>EDIT CLUB</button>';
+                                        }
+                                    }
+
                                 mysqli_close($db);
                             ?>
                             <hr class="margin-bottom-40">

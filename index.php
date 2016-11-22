@@ -76,12 +76,22 @@
                                     <li>
                                         <a href="contact.html" class="fa-comment ">D.N.K.</a>
                                     </li>
-                                    <li>
-                                        <a href="login.php" class="fa-comment ">Login</a>
-                                    </li>
-                                    <li>
-                                        <a href="signup.php" class="fa-comment ">Signup</a>
-                                    </li>
+                                    <?php
+                                    session_start();
+
+                                    if (!isset($_SESSION['access_level'])) {
+                                        echo '<li>
+                                            <a href="login.php" class="fa-comment ">Login</a>
+                                        </li>
+                                        <li>
+                                            <a href="signup.php" class="fa-comment ">Signup</a>
+                                        </li>';
+                                    } else {
+                                        echo '<li>
+                                            <a href="logout.php" class="fa-comment ">Logout</a>
+                                        </li>';
+                                    }
+                                    ?>
 
                                     <!-- <li>
                                         <span class="fa-font ">Blog</span>
