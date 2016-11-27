@@ -25,6 +25,8 @@
         <link rel="stylesheet" href="assets/css/responsive.css" rel="stylesheet">
         <link rel="stylesheet" href="assets/css/custom.css" rel="stylesheet">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel="stylesheet" href="assets/owl-carousel/owl.carousel.css">
+        <link rel="stylesheet" href="assets/owl-carousel/owl.theme.css">
         <link rel="stylesheet" href="assets/css/calendar.css" rel="stylesheet">
         <script type="text/javascript" src="assets/js/jquery.min.js" type="text/javascript"></script>
         <!-- Google Fonts-->
@@ -180,8 +182,20 @@
                                                 aut odit aut fugit, sed quia consequuntur magni. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
                                         </div>
                                     </div>
-
-                                    <hr>
+                                    <div class="contact-info">
+                                        <p>Contact Info</p>
+                                        <p><strong>Mobile phone</strong>: '.$row['mobilePhone'].'</p>
+                                        <p><strong>House phone</strong>: '.$row['housePhone'].'</p>
+                                        <p><strong>Address:</strong> '.$row['address1'].', '.$row['city'].', '.$row['postcode'].', '.$row['country'].'</p>
+                                    </div>
+                                    <hr>';
+                                    echo '<div id="club-gallery" class="owl-carousel">';
+                                    $result = $db->query("SELECT * FROM photos");
+                                        while($row = $result->fetch_assoc()){
+                                            echo '<div class="item"><img src="'.$row['url'].'" alt="'.$row['description'].'"></div>';
+                                        }
+                                    echo '</div>';
+                                    echo '<hr>
                                     <div class="row animate fadeInUp">
                                         <h2 class="text-center margin-top-10">'.$row['description'].'</h2>
                                         <p class="text-center margin-bottom-30">Aenean venenatis egestas iaculis. Donec non urna quam. Nullam consectetur condimentum dolor at bibendum.</p>
@@ -313,6 +327,8 @@
             <script type="text/javascript" src="assets/js/slimbox2.js" charset="utf-8"></script>
             <!-- Modernizr -->
             <script src="assets/js/modernizr.custom.js" type="text/javascript"></script>
+            <script src="assets/owl-carousel/owl.carousel.js"></script>
+            <script src="assets/js/carousel.js" type="text/javascript"></script>
             <!-- End JS -->
     </body>
 </html>
