@@ -190,9 +190,9 @@
                                     </div>
                                     <hr>';
                                     echo '<div id="club-gallery" class="owl-carousel">';
-                                    $result = $db->query("SELECT * FROM photos");
-                                        while($row = $result->fetch_assoc()){
-                                            echo '<div class="item"><img src="'.$row['url'].'" alt="'.$row['description'].'"></div>';
+                                    $result2 = $db->query("SELECT * FROM photos");
+                                        while($row2 = $result2->fetch_assoc()){
+                                            echo '<div class="item"><img src="'.$row2['url'].'" alt="'.$row2['description'].'"></div>';
                                         }
                                     echo '</div>';
                                     echo '<hr>
@@ -203,8 +203,7 @@
 
                                     if(isset($_COOKIE['user'])){
                                         $user = $_COOKIE['user'];
-
-                                        $result = $db->query("SELECT * FROM clubadmins WHERE clubID={$row['clubID']}");
+                                        $result = $db->query("SELECT * FROM clubadmins WHERE clubID=".$row['clubID']);
                                         $isAdmin = false;
                                         while($newrow = $result->fetch_assoc()){
                                             if($newrow['userID']==$user){
@@ -213,7 +212,7 @@
                                             }
                                         }
                                         if($isAdmin){
-                                            echo '<button>EDIT CLUB</button>';
+                                            echo '<a href="editclub.php">Edit club</a>';
                                         }
                                     }
 
