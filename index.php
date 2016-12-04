@@ -19,7 +19,7 @@
         <link rel="stylesheet" href="assets/css/bootstrap.css" rel="stylesheet">
         <!-- Template CSS -->
         <link rel="stylesheet" href="assets/css/animate.css" rel="stylesheet">
-        <!-- <link rel="stylesheet" href="assets/css/font-awesome.css" rel="stylesheet"> -->
+        <link rel="stylesheet" href="assets/css/font-awesome.css" rel="stylesheet">
         <link rel="stylesheet" href="assets/css/nexus.css" rel="stylesheet">
         <link rel="stylesheet" href="assets/css/responsive.css" rel="stylesheet">
         <link rel="stylesheet" href="assets/css/custom.css" rel="stylesheet">
