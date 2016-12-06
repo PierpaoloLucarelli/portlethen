@@ -150,7 +150,7 @@
                                             }
                                         }
                                         if($isAdmin){
-                                            echo '<a href="editclub.php">Edit club</a>';
+                                            echo '<a href="editclub.php?clubId='.$clubId.'">Edit club</a>';
                                         }
                                     }
 
