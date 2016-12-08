@@ -4,7 +4,7 @@
 
  if(isset($_POST['update'])) {
 
-     $sql = $db->query("UPDATE clubs set clubName = $name WHERE clubId = $clubId");
+
 
      $name = $_POST['name'];
      $category = $_POST['category'];
@@ -17,7 +17,7 @@
      $postcode = $_POST['postcode'];
      $country = $_POST['country'];
 
-
+     $sql = $db->query("UPDATE clubs set clubName = $name, clubDesc = $description WHERE clubId = $clubId");
 
    //  $sql = $db->query("UPDATE clubs SET clubName = '$name', clubDesc = '$description', clubImage = '$clubImage' WHERE clubId =" . $clubId);
 
