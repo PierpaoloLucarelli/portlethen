@@ -1,23 +1,23 @@
 <?php
-// $clubId = $_GET["clubId"];
-//
-// if(isset($_POST['update']))
-// {
-// $name = $_POST['name'];
-// $category = $_POST['category'];
-// $description = $_POST['description'];
-// $clubImage = $_POST['clubImage'];
-// $mobilePhone = $_POST['mobilePhone'];
-// $housePhone = $_POST['housePhone'];
-// $address = $_POST['address'];
-// $city = $_POST['city'];
-// $postcode = $_POST['postcode'];
-// $country = $_POST['country'];
-//
-// include 'dbConfig.php';
-//
-// $sql = $db->query("UPDATE clubs SET clubName = '$name', clubDesc = '$description', clubImage = '$clubImage' WHERE clubId =".$clubId);
-//
+ $clubId = $_GET["clubId"];
+
+ if(isset($_POST['update']))
+
+ $name = $_POST['name'];
+ $category = $_POST['category'];
+ $description = $_POST['description'];
+ $clubImage = $_POST['clubImage'];
+ $mobilePhone = $_POST['mobilePhone'];
+ $housePhone = $_POST['housePhone'];
+ $address = $_POST['address'];
+ $city = $_POST['city'];
+ $postcode = $_POST['postcode'];
+ $country = $_POST['country'];
+
+ include 'dbConfig.php';
+
+ $sql = $db->query("UPDATE clubs SET clubName = '$name', clubDesc = '$description', clubImage = '$clubImage' WHERE clubId =".$clubId);
+
 
 ?>
 <!DOCTYPE html>
