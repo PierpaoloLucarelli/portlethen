@@ -18,7 +18,8 @@
 
 
    //  $sql = $db->query("UPDATE clubs SET clubName = '$name', clubDesc = '$description', clubImage = '$clubImage' WHERE clubId =" . $clubId);
-     $sql = "UPDATE clubs SET clubName='TestCLubName' WHERE clubId='1'";
+     $sql = $db->query("UPDATE clubs set clubName = $name WHERE clubId = $clubId");
+
 
  }
 ?>
