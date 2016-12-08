@@ -1,25 +1,4 @@
-<?php
-// $clubId = $_GET["clubId"];
-//
-// if(isset($_POST['update']))
-// {
-// $name = $_POST['name'];
-// $category = $_POST['category'];
-// $description = $_POST['description'];
-// $clubImage = $_POST['clubImage'];
-// $mobilePhone = $_POST['mobilePhone'];
-// $housePhone = $_POST['housePhone'];
-// $address = $_POST['address'];
-// $city = $_POST['city'];
-// $postcode = $_POST['postcode'];
-// $country = $_POST['country'];
-//
-// include 'dbConfig.php';
-//
-// $sql = $db->query("UPDATE clubs SET clubName = '$name', clubDesc = '$description', clubImage = '$clubImage' WHERE clubId =".$clubId);
-//
 
-?>
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
@@ -80,87 +59,119 @@
             <!-- End Header -->
             <!-- Top Menu -->
             <?php  include "./includes/nav.php" ?>
-            <?php
+            <?
+            if(isset($_POST['update']))
+            {
+                $clubId = $_GET["clubId"];
+                $name = $_POST['name'];
+                $clubDesc = $_POST['clubDesc'];
+                $category = $_POST['category'];
+                $description = $_POST['description'];
+                $clubImage = $_POST['clubImage'];
+                $mobilePhone = $_POST['mobilePhone'];
+                $housePhone = $_POST['housePhone'];
+                $address = $_POST['address'];
+                $city = $_POST['city'];
+                $postcode = $_POST['postcode'];
+                $country = $_POST['country'];
 
-            include 'dbConfig.php';
-            $clubId = $_GET["clubId"];
-            $result = $db->query("SELECT clubs.*, genre.name, genre.description, contactinfo.*
-                FROM clubs INNER JOIN genre ON clubs.genreID=genre.genreID
-                INNER JOIN contactinfo on clubs.infoID=contactinfo.infoID
-                where clubs.clubID={$clubId}");
-            $row = $result->fetch_assoc();
+                include 'dbConfig.php';
+                $result = $db->query("UPDATE clubs c JOIN genre g ON c.genreID = g.genreID
+                    JOIN contactinfo i ON c.infoID = i.infoID
+                    SET c.clubName = '".$name."', g.name = '".$category."', g.description='".$description."',
+                    c.clubImage='".$clubImage."', c.clubDesc='".$clubDesc."', i.mobilePhone='".$mobilePhone."',
+                    i.housePhone='".$housePhone."', i.address1='".$address."', i.city='".$city."',
+                    i.postcode='".$postcode."', i.country='".$country."' WHERE c.clubID=".$clubId);
+                    echo "edit ok <a href='editclub.php?clubId=".$clubId."'>Return to edit</a>";
 
-            echo '<div class="editform">
-                <form action="" method="post" class="login-page">
-                    <div class="login-header margin-bottom-30">
-                        <h2>Edit club info</h2>
-                    </div>
-                    <div class="input-group margin-bottom-20">
-                        <span class="input-group-addon">
-                            <i class="fa fa-user"></i>
-                        </span>
-                        <input name="name" placeholder="'.$row['clubName'].'" class="form-control" type="text">
-                    </div>
-                    <div class="input-group margin-bottom-20">
-                        <span class="input-group-addon">
-                            <i class="fa fa-lock"></i>
-                        </span>
-                        <input placeholder="'.$row['name'].'" class="form-control" name="category" type="text">
-                    </div>
-                    <div class="input-group margin-bottom-20">
-                        <span class="input-group-addon">
-                            <i class="fa fa-lock"></i>
-                        </span>
-                        <input placeholder="'.$row['description'].'" class="form-control" name="description" type="textarea">
-                    </div>
-                    <div class="input-group margin-bottom-20">
-                        <span class="input-group-addon">
-                            <i class="fa fa-lock"></i>
-                        </span>
-                        <input placeholder="'.$row['clubImage'].'" class="form-control" name="clubImage" type="text">
-                    </div>
-                    <div class="input-group margin-bottom-20">
-                        <span class="input-group-addon">
-                            <i class="fa fa-lock"></i>
-                        </span>
-                        <input placeholder="'.$row['mobilePhone'].'" class="form-control" name="mobilePhone" type="text">
-                    </div>
-                    <div class="input-group margin-bottom-20">
-                        <span class="input-group-addon">
-                            <i class="fa fa-lock"></i>
-                        </span>
-                        <input placeholder="'.$row['housePhone'].'" class="form-control" name="housePhone" type="text">
-                    </div>
-                    <div class="input-group margin-bottom-20">
-                        <span class="input-group-addon">
-                            <i class="fa fa-lock"></i>
-                        </span>
-                        <input placeholder="'.$row['address1'].'" class="form-control" name="address" type="text">
-                    </div>
-                    <div class="input-group margin-bottom-20">
-                        <span class="input-group-addon">
-                            <i class="fa fa-lock"></i>
-                        </span>
-                        <input placeholder="'.$row['city'].'" class="form-control" name="city" type="text">
-                    </div>
-                    <div class="input-group margin-bottom-20">
-                        <span class="input-group-addon">
-                            <i class="fa fa-lock"></i>
-                        </span>
-                        <input placeholder="'.$row['postcode'].'" class="form-control" name="postcode" type="text">
-                    </div>
-                    <div class="input-group margin-bottom-20">
-                        <span class="input-group-addon">
-                            <i class="fa fa-lock"></i>
-                        </span>
-                        <input placeholder="'.$row['country'].'" class="form-control" name="country" type="text">
-                    </div>
-                    <div class="row">
-                            <div class="col-md-6">
-                                <button class="btn btn-primary pull-right" name="update" value="update" type="submit">Save changes</button>
-                            </div>
-                        </form>
-            </div>'
+            } else {
+
+                include 'dbConfig.php';
+                $clubId = $_GET["clubId"];
+                $result = $db->query("SELECT clubs.*, genre.name, genre.description, contactinfo.*
+                    FROM clubs INNER JOIN genre ON clubs.genreID=genre.genreID
+                    INNER JOIN contactinfo on clubs.infoID=contactinfo.infoID
+                    where clubs.clubID={$clubId}");
+                $row = $result->fetch_assoc();
+
+                echo '<div class="editform">
+                    <form action="" method="post" class="login-page">
+                        <div class="login-header margin-bottom-30">
+                            <h2>Edit club info</h2>
+                        </div>
+                        <div class="input-group margin-bottom-20">
+                            <span class="input-group-addon">
+                                <i class="fa fa-user"></i>
+                            </span>
+                            <input name="name" value="'.$row['clubName'].'" placeholder="'.$row['clubName'].'" class="form-control" type="text">
+                        </div>
+                        <div class="input-group margin-bottom-20">
+                            <span class="input-group-addon">
+                                <i class="fa fa-user"></i>
+                            </span>
+                            <input name="clubDesc" value="'.$row['clubDesc'].'" placeholder="'.$row['clubDesc'].'" class="form-control" type="textarea">
+                        </div>
+                        <div class="input-group margin-bottom-20">
+                            <span class="input-group-addon">
+                                <i class="fa fa-lock"></i>
+                            </span>
+                            <input placeholder="'.$row['name'].'" class="form-control" value="'.$row['name'].'" name="category" type="text">
+                        </div>
+                        <div class="input-group margin-bottom-20">
+                            <span class="input-group-addon">
+                                <i class="fa fa-lock"></i>
+                            </span>
+                            <input placeholder="'.$row['description'].'" class="form-control" value="'.$row['description'].'" name="description" type="textarea">
+                        </div>
+                        <div class="input-group margin-bottom-20">
+                            <span class="input-group-addon">
+                                <i class="fa fa-lock"></i>
+                            </span>
+                            <input placeholder="'.$row['clubImage'].'" class="form-control" value="'.$row['clubImage'].'" name="clubImage" type="text">
+                        </div>
+                        <div class="input-group margin-bottom-20">
+                            <span class="input-group-addon">
+                                <i class="fa fa-lock"></i>
+                            </span>
+                            <input placeholder="'.$row['mobilePhone'].'" class="form-control" value="'.$row['mobilePhone'].'" name="mobilePhone" type="text">
+                        </div>
+                        <div class="input-group margin-bottom-20">
+                            <span class="input-group-addon">
+                                <i class="fa fa-lock"></i>
+                            </span>
+                            <input placeholder="'.$row['housePhone'].'" class="form-control" value="'.$row['housePhone'].'" name="housePhone" type="text">
+                        </div>
+                        <div class="input-group margin-bottom-20">
+                            <span class="input-group-addon">
+                                <i class="fa fa-lock"></i>
+                            </span>
+                            <input placeholder="'.$row['address1'].'" class="form-control" value="'.$row['address1'].'" name="address" type="text">
+                        </div>
+                        <div class="input-group margin-bottom-20">
+                            <span class="input-group-addon">
+                                <i class="fa fa-lock"></i>
+                            </span>
+                            <input placeholder="'.$row['city'].'" class="form-control" value="'.$row['city'].'" name="city" type="text">
+                        </div>
+                        <div class="input-group margin-bottom-20">
+                            <span class="input-group-addon">
+                                <i class="fa fa-lock"></i>
+                            </span>
+                            <input placeholder="'.$row['postcode'].'" class="form-control" value="'.$row['postcode'].'" name="postcode" type="text">
+                        </div>
+                        <div class="input-group margin-bottom-20">
+                            <span class="input-group-addon">
+                                <i class="fa fa-lock"></i>
+                            </span>
+                            <input placeholder="'.$row['country'].'" class="form-control" value="'.$row['country'].'" name="country" type="text">
+                        </div>
+                        <div class="row">
+                                <div class="col-md-6">
+                                    <button class="btn btn-primary pull-right" name="update" value="update" type="submit">Save changes</button>
+                                </div>
+                            </form>
+                </div>';
+            }
 
             ?>
 
