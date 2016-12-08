@@ -16,7 +16,7 @@
 
      include 'dbConfig.php';
 
-     $sql = $db->query("UPDATE clubs SET clubName = '$name', clubDesc = '$description', clubImage = '$clubImage' WHERE clubId =" . $clubId);
+     $sql = $db->query("UPDATE clubs SET clubName = '$name', clubDesc = '$description', clubImage = '$clubImage' WHERE clubId =  '$clubId'");
 
  }
 ?>
