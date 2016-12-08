@@ -1,4 +1,5 @@
 <?php
+ include 'dbConfig.php';
  $clubId = $_GET["clubId"];
 
  if(isset($_POST['update'])) {
@@ -14,9 +15,9 @@
      $postcode = $_POST['postcode'];
      $country = $_POST['country'];
 
-     include 'dbConfig.php';
 
-     $sql = $db->query("UPDATE clubs SET clubName = '$name', clubDesc = '$description', clubImage = '$clubImage' WHERE clubId =  '$clubId'");
+
+     $sql = $db->query("UPDATE clubs SET clubName = '$name', clubDesc = '$description', clubImage = '$clubImage' WHERE clubId =" . $clubId);
 
  }
 ?>
