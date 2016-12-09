@@ -138,7 +138,6 @@
                                         <h2 class="text-center margin-top-10">'.$row['description'].'</h2>
                                         <p class="text-center margin-bottom-30">Aenean venenatis egestas iaculis. Donec non urna quam. Nullam consectetur condimentum dolor at bibendum.</p>
                                     </div>';
-
                                     if(isset($_COOKIE['user'])){
                                         $user = $_COOKIE['user'];
                                         $result = $db->query("SELECT * FROM clubadmins WHERE clubID=".$row['clubID']);
@@ -153,7 +152,6 @@
                                             echo '<a href="editclub.php?clubId='.$clubId.'">Edit club</a>';
                                         }
                                     }
-
                                 mysqli_close($db);
                             ?>
                             <hr class="margin-bottom-40">
@@ -161,7 +159,10 @@
                     </div>
                 </div>
             </div>
-            
+            <div id="calendar_div">
+                <?php include_once('functions.php'); ?>
+	               <?php echo getCalender(); ?>
+            </div>
             <!-- === END CONTENT === -->
             <!-- === BEGIN FOOTER === -->
             <div id="base" style="clear: both">
