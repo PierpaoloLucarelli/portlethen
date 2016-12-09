@@ -1,4 +1,4 @@
-<?php include_once('functions.php'); ?>
+
 <!-- === BEGIN HEADER === -->
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
@@ -161,9 +161,7 @@
                     </div>
                 </div>
             </div>
-            <div id="calendar_div">
-	               <?php echo getCalender(); ?>
-            </div>
+            
             <!-- === END CONTENT === -->
             <!-- === BEGIN FOOTER === -->
             <div id="base" style="clear: both">
