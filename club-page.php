@@ -160,8 +160,25 @@
                 </div>
             </div>
             <div id="calendar_div">
-                <?php include_once('functions.php'); ?>
-	               <?php echo getCalender(); ?>
+	               <?php
+                       $clubId = $_GET["clubid"];
+                       include 'dbConfig.php';
+                       $result = $db->query("SELECT * FROM events WHERE clubID=".$clubId);
+                       echo "
+                         <div class='container event-container'><h2>Upcoming events</h2>";
+                       while($row = $result->fetch_assoc()){
+                           echo "
+                                <div class='event'>
+                                    <h2>".$row['title']."</h3>
+                                    <p class='desc'>".$row['desc']."</p>
+                                    <p class='date'>".$row['date']."</p>
+                                </div>
+                           ";
+                       }
+
+                       echo "</div>";
+
+                   ?>
             </div>
             <!-- === END CONTENT === -->
             <!-- === BEGIN FOOTER === -->

@@ -1,5 +1,10 @@
-#mycalendar{
-    max-width: 80%;
-    margin: 50px auto;
+.event{
+    background: #fff;
+    margin: 20px 0;
+    padding: 20px;
+}
 
+.event-container{
+    padding: 0;
+    margin-top: 40px;
 }
