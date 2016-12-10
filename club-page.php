@@ -73,9 +73,8 @@
                             <?php
                                 $clubId = $_GET["clubid"];
                                 include 'dbConfig.php';
-                                $result = $db->query("SELECT clubs.*, genre.name, genre.description, contactinfo.*
+                                $result = $db->query("SELECT clubs.*, genre.name, genre.description
                                     FROM clubs INNER JOIN genre ON clubs.genreID=genre.genreID
-                                    INNER JOIN contactinfo on clubs.infoID=contactinfo.infoID
                                     where clubs.clubID={$clubId}");
                                 $row = $result->fetch_assoc();
                                     echo '

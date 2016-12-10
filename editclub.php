@@ -77,20 +77,18 @@
 
                 include 'dbConfig.php';
                 $result = $db->query("UPDATE clubs c JOIN genre g ON c.genreID = g.genreID
-                    JOIN contactinfo i ON c.infoID = i.infoID
                     SET c.clubName = '".$name."', g.name = '".$category."', g.description='".$description."',
-                    c.clubImage='".$clubImage."', c.clubDesc='".$clubDesc."', i.mobilePhone='".$mobilePhone."',
-                    i.housePhone='".$housePhone."', i.address1='".$address."', i.city='".$city."',
-                    i.postcode='".$postcode."', i.country='".$country."' WHERE c.clubID=".$clubId);
+                    c.clubImage='".$clubImage."', c.clubDesc='".$clubDesc."', c.mobilePhone='".$mobilePhone."',
+                    c.housePhone='".$housePhone."', c.address1='".$address."', c.city='".$city."',
+                    c.postcode='".$postcode."', c.country='".$country."' WHERE c.clubID=".$clubId);
                     echo "edit ok <a href='editclub.php?clubId=".$clubId."'>Return to edit</a>";
 
             } else {
 
                 include 'dbConfig.php';
                 $clubId = $_GET["clubId"];
-                $result = $db->query("SELECT clubs.*, genre.name, genre.description, contactinfo.*
+                $result = $db->query("SELECT clubs.*, genre.name, genre.description
                     FROM clubs INNER JOIN genre ON clubs.genreID=genre.genreID
-                    INNER JOIN contactinfo on clubs.infoID=contactinfo.infoID
                     where clubs.clubID={$clubId}");
                 $row = $result->fetch_assoc();
 
