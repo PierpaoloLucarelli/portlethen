@@ -14,7 +14,7 @@
                             <a href="contact.html" class="fa-copy">Health & Wellbeing</a>
                         </li>
                         <li>
-                            <a href="contact.html" class="fa-comment ">D.N.K.</a>
+                            <a href="dnk.php" class="fa-comment ">D.N.K</a>
                         </li>
                         <?php
                         session_start();
