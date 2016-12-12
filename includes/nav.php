@@ -11,7 +11,7 @@
                             <a href="clubs.php" class="fa-gears">Clubs & Societies</a>
                         </li>
                         <li>
-                            <a href="contact.html" class="fa-copy">Health & Wellbeing</a>
+                            <a href="#" class="fa-copy">Health & Wellbeing</a>
                         </li>
                         <li>
                             <a href="dnk.php" class="fa-comment ">D.N.K</a>

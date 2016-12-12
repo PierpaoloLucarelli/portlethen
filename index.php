@@ -233,7 +233,7 @@
             <!-- End Portfolio -->
             <!-- === END CONTENT === -->
             <!-- === BEGIN FOOTER === -->
-            <div id="base">
+            <div id="base" style="clear:both;">
                 <div class="container bottom-border padding-vert-30">
                     <div class="row">
                         <!-- Disclaimer -->
@@ -243,7 +243,9 @@
                             <p>Most of the images used here are available from
                                 <a href="http://www.shutterstock.com/" target="_blank">shutterstock.com</a>. Links are provided if you wish to purchase them from their copyright owners.</p>
                         </div>
-                        <!-- End Disclaimer -->
+                        <!-- End Disclaimer --> <div class="col-md-4 margin-bottom-20">
+
+                        </div>
                         <!-- Contact Details -->
                         <div class="col-md-4 margin-bottom-20">
                             <h3 class="margin-bottom-10">Contact Details</h3>
@@ -262,25 +264,7 @@
                                 <br>Ireland</p>
                         </div>
                         <!-- End Contact Details -->
-                        <!-- Sample Menu -->
-                        <div class="col-md-4 margin-bottom-20">
-                            <h3 class="margin-bottom-10">Sample Menu</h3>
-                            <ul class="menu">
-                                <li>
-                                    <a class="fa-tasks" href="#">Placerat facer possim</a>
-                                </li>
-                                <li>
-                                    <a class="fa-users" href="#">Quam nunc putamus</a>
-                                </li>
-                                <li>
-                                    <a class="fa-signal" href="#">Velit esse molestie</a>
-                                </li>
-                                <li>
-                                    <a class="fa-coffee" href="#">Nam liber tempor</a>
-                                </li>
-                            </ul>
-                            <div class="clearfix"></div>
-                        </div>
+
                         <!-- End Sample Menu -->
                     </div>
                 </div>
