@@ -291,25 +291,25 @@
                     <div class="row">
                         <!-- Footer Menu -->
                         <div id="footermenu" class="col-md-8">
-                            <ul class="list-unstyled list-inline">
-                                <li>
-                                    <a href="#" target="_blank">Sample Link</a>
+                            <ul class="social-icons pull-right">
+                                <li class="social-rss">
+                                    <a href="#" target="_blank" title="RSS"></a>
                                 </li>
-                                <li>
-                                    <a href="#" target="_blank">Sample Link</a>
+                                <li class="social-twitter">
+                                    <a href="#" target="_blank" title="Twitter"></a>
                                 </li>
-                                <li>
-                                    <a href="#" target="_blank">Sample Link</a>
+                                <li class="social-facebook">
+                                    <a href="#" target="_blank" title="Facebook"></a>
                                 </li>
-                                <li>
-                                    <a href="#" target="_blank">Sample Link</a>
+                                <li class="social-googleplus">
+                                    <a href="#" target="_blank" title="Google+"></a>
                                 </li>
                             </ul>
                         </div>
                         <!-- End Footer Menu -->
                         <!-- Copyright -->
                         <div id="copyright" class="col-md-4">
-                            <p class="pull-right">(c) 2014 Your Copyright Info</p>
+                            <p class="pull-right"> 2014 Your Copyright Info &copy;</p>
                         </div>
                         <!-- End Copyright -->
                     </div>

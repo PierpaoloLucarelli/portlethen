@@ -28,20 +28,7 @@
     </head>
     <body>
         <div id="body-bg">
-            <!-- Phone/Email -->
-            <div id="pre-header" class="background-gray-lighter">
-                <div class="container no-padding">
-                    <div class="row hidden-xs">
-                        <div class="col-sm-6 padding-vert-5">
-                            <strong>Phone:</strong>&nbsp;1-800-123-4567
-                        </div>
-                        <div class="col-sm-6 text-right padding-vert-5">
-                            <strong>Email:</strong>&nbsp;info@joomla51.com
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Phone/Email -->
+
             <!-- Header -->
             <div id="header">
                 <div class="container">
@@ -107,7 +94,9 @@
                             <p>Most of the images used here are available from
                                 <a href="http://www.shutterstock.com/" target="_blank">shutterstock.com</a>. Links are provided if you wish to purchase them from their copyright owners.</p>
                         </div>
-                        <!-- End Disclaimer -->
+                        <!-- End Disclaimer --> <div class="col-md-4 margin-bottom-20">
+
+                        </div>
                         <!-- Contact Details -->
                         <div class="col-md-4 margin-bottom-20">
                             <h3 class="margin-bottom-10">Contact Details</h3>
@@ -126,25 +115,7 @@
                                 <br>Ireland</p>
                         </div>
                         <!-- End Contact Details -->
-                        <!-- Sample Menu -->
-                        <div class="col-md-4 margin-bottom-20">
-                            <h3 class="margin-bottom-10">Sample Menu</h3>
-                            <ul class="menu">
-                                <li>
-                                    <a class="fa-tasks" href="#">Placerat facer possim</a>
-                                </li>
-                                <li>
-                                    <a class="fa-users" href="#">Quam nunc putamus</a>
-                                </li>
-                                <li>
-                                    <a class="fa-signal" href="#">Velit esse molestie</a>
-                                </li>
-                                <li>
-                                    <a class="fa-coffee" href="#">Nam liber tempor</a>
-                                </li>
-                            </ul>
-                            <div class="clearfix"></div>
-                        </div>
+
                         <!-- End Sample Menu -->
                     </div>
                 </div>
@@ -155,25 +126,25 @@
                     <div class="row">
                         <!-- Footer Menu -->
                         <div id="footermenu" class="col-md-8">
-                            <ul class="list-unstyled list-inline">
-                                <li>
-                                    <a href="#" target="_blank">Sample Link</a>
+                            <ul class="social-icons pull-right">
+                                <li class="social-rss">
+                                    <a href="#" target="_blank" title="RSS"></a>
                                 </li>
-                                <li>
-                                    <a href="#" target="_blank">Sample Link</a>
+                                <li class="social-twitter">
+                                    <a href="#" target="_blank" title="Twitter"></a>
                                 </li>
-                                <li>
-                                    <a href="#" target="_blank">Sample Link</a>
+                                <li class="social-facebook">
+                                    <a href="#" target="_blank" title="Facebook"></a>
                                 </li>
-                                <li>
-                                    <a href="#" target="_blank">Sample Link</a>
+                                <li class="social-googleplus">
+                                    <a href="#" target="_blank" title="Google+"></a>
                                 </li>
                             </ul>
                         </div>
                         <!-- End Footer Menu -->
                         <!-- Copyright -->
                         <div id="copyright" class="col-md-4">
-                            <p class="pull-right">(c) 2014 Your Copyright Info</p>
+                            <p class="pull-right">2016 Your Copyright Info &copy;</p>
                         </div>
                         <!-- End Copyright -->
                     </div>

@@ -18,19 +18,6 @@
                         </li>
                         <?php
                         session_start();
-
-                        if (!isset($_SESSION['access_level'])) {
-                            echo '<li>
-                                <a href="login.php" class="fa-comment ">Login</a>
-                            </li>
-                            <li>
-                                <a href="signup.php" class="fa-comment ">Signup</a>
-                            </li>';
-                        } else {
-                            echo '<li>
-                                <a href="logout.php" class="fa-comment ">Logout</a>
-                            </li>';
-                        }
                         ?>
 
                         <!-- <li>
@@ -44,26 +31,27 @@
                                 </li>
                             </ul>
                         </li> -->
-                        <li>
-                            <a href="contact.html" class="fa-comment ">Contact</a>
-                        </li>
+
                     </ul>
                 </div>
             </div>
             <div class="col-md-4 no-padding">
-                <ul class="social-icons pull-right">
-                    <li class="social-rss">
-                        <a href="#" target="_blank" title="RSS"></a>
-                    </li>
-                    <li class="social-twitter">
-                        <a href="#" target="_blank" title="Twitter"></a>
-                    </li>
-                    <li class="social-facebook">
-                        <a href="#" target="_blank" title="Facebook"></a>
-                    </li>
-                    <li class="social-googleplus">
-                        <a href="#" target="_blank" title="Google+"></a>
-                    </li>
+                <ul id="hornavmenu" class="nav navbar-nav">
+                    <?php
+
+                    if (!isset($_SESSION['access_level'])) {
+                        echo '<li>
+                                    <a href="login.php" class="fa-user">Login</a>
+                                </li>
+                                <li>
+                                    <a href="signup.php" class="fa-sign-in">Signup</a>
+                                </li>';
+                    } else {
+                        echo '<li>
+                                    <a href="logout.php" class="fa-sign-out ">Logout</a>
+                                </li>';
+                    }
+                    ?>
                 </ul>
             </div>
         </div>
