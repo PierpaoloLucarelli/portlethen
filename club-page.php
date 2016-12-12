@@ -1,4 +1,4 @@
-<?php include_once('functions.php'); ?>
+
 <!-- === BEGIN HEADER === -->
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
@@ -36,7 +36,7 @@
 <div id="body-bg">
 
     <!-- Header -->
-    <?php include "./includes/header.php" ?>
+    <?php include "./includes/header.php"?>
     <!-- End Header -->
     <!-- Top Menu -->
     <?php  include "./includes/nav.php" ?>
@@ -48,9 +48,8 @@
                     <?php
                     $clubId = $_GET["clubid"];
                     include 'dbConfig.php';
-                    $result = $db->query("SELECT clubs.*, genre.name, genre.description, contactinfo.*
+                    $result = $db->query("SELECT clubs.*, genre.name, genre.description
                                     FROM clubs INNER JOIN genre ON clubs.genreID=genre.genreID
-                                    INNER JOIN contactinfo on clubs.infoID=contactinfo.infoID
                                     where clubs.clubID={$clubId}");
                     $row = $result->fetch_assoc();
                     echo '
@@ -124,6 +123,8 @@
                             }
                         }
                         if($isAdmin){
+                            echo "<p>You are Logeed in as an admin of the Map</p>";
+                            echo "<a href='admin/admin.php'>Add a new point</a><br>";
                             echo '<a href="editclub.php?clubId='.$clubId.'">Edit club</a>';
                         }
                     }
@@ -135,11 +136,59 @@
         </div>
     </div>
     <div id="calendar_div">
-        <?php echo getCalender(); ?>
+        <?php
+        $clubId = $_GET["clubid"];
+        include 'dbConfig.php';
+        $result = $db->query("SELECT * FROM events WHERE clubID=".$clubId);
+        echo "
+                         <div class='container event-container'><h2>Upcoming events</h2>";
+        while($row = $result->fetch_assoc()){
+            echo "
+                                <div class='event'>
+                                    <h2>".$row['title']."</h3>
+                                    <p class='desc'>".$row['desc']."</p>
+                                    <p class='date'>".$row['date']."</p>
+                                </div>
+                           ";
+        }
+
+        echo "</div>";
+
+        ?>
     </div>
     <!-- === END CONTENT === -->
     <!-- === BEGIN FOOTER === -->
-    <?php include "./includes/footer.php" ?>
+    <?php include "./includes/footer.php"?>
+    <!-- Footer -->
+    <div id="footer" class="background-grey">
+        <div class="container">
+            <div class="row">
+                <!-- Footer Menu -->
+                <div id="footermenu" class="col-md-8">
+                    <ul class="list-unstyled list-inline">
+                        <li>
+                            <a href="#" target="_blank">Sample Link</a>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank">Sample Link</a>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank">Sample Link</a>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank">Sample Link</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- End Footer Menu -->
+                <!-- Copyright -->
+                <div id="copyright" class="col-md-4">
+                    <p class="pull-right">(c) 2014 Your Copyright Info</p>
+                </div>
+                <!-- End Copyright -->
+            </div>
+        </div>
+    </div>
     <!-- End Footer -->
     <!-- JS -->
     <script type="text/javascript" src="assets/js/bootstrap.min.js" type="text/javascript"></script>
