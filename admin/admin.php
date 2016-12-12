@@ -23,7 +23,7 @@
     }
 
     function nkpag(){
-        echo "nkpag admin panel";
+        include "nkpag.php";
     }
 ?>
 </body>

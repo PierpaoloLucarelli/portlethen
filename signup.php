@@ -140,8 +140,8 @@
                                 else if ($exists == 3) echo "<p>Email already exists!</p>";
                                 else {
                                     # insert data into mysql database
-                                    $sql = "INSERT  INTO `users` (`userID`, `username`, `firstname`, `lastname`, `email`, `password`)
-                                    VALUES (NULL, '{$username}', '{$first_name}', '{$last_name}', '{$email}', '{$password}')";
+                                    $sql = "INSERT  INTO `users` (`username`, `firstname`, `lastname`, `email`, `password`)
+                                    VALUES ('{$username}', '{$first_name}', '{$last_name}', '{$email}', '{$password}')";
 
                                     if ($db->query($sql)) {
                                         //echo "New Record has id ".$mysqli->insert_id;
