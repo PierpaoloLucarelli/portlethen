@@ -30,7 +30,7 @@
 	background-color: #313131;
 	height: 700px;
     color: #e3e3e3;
-    border-left: 2px solid #33747a;
+    border-left: 2px solid #d15439;
 	width: 30%;
 	overflow-y: scroll;
 	overflow-x: hidden;
@@ -55,4 +55,20 @@ box-shadow: -18px 3px 23px -13px rgba(37,38,46,0.35);
 
 #info div:hover{
 	box-shadow: 1px black;
+}
+
+
+.navigation-container{
+    max-width: 2556px;
+    width: 100%;
+}
+
+#hornav .no-padding {
+    padding-bottom: 0 !important;
+}
+#hornav .navigation-container {
+    background-color: #313131;
+    box-shadow: 0 -4px 0 #d15439 inset, 0 0 20px rgba(0, 0, 0, 0.1);
+    min-height: 60px;
+    display: block;
 }
