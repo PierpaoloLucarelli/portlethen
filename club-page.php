@@ -123,6 +123,8 @@
                                             }
                                         }
                                         if($isAdmin){
+                                            echo "<p>You are Logeed in as an admin of the Map</p>";
+                                            echo "<a href='admin/admin.php'>Add a new point</a><br>";
                                             echo '<a href="editclub.php?clubId='.$clubId.'">Edit club</a>';
                                         }
                                     }

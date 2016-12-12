@@ -55,7 +55,16 @@
                 <div id="mapid"></div>
                 <div id="info"></div>
             </div>
+            <?php
+                        if(isset($_COOKIE['user'])){
+                            $user = $_COOKIE['user-access-level'];
+                            if($user=='nkpag'){
+                                echo "<p>You are Logeed in as an admin of the Map</p>";
+                                echo "<a href='admin/admin.php'>Add a new point</a>";
+                            }
 
+                        }
+            ?>
             <div id="footer" class="background-grey">
                 <div class="container">
                     <div class="row">
