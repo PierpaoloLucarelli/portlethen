@@ -62,6 +62,7 @@
             <?
             if(isset($_POST['update']))
             {
+                $_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
                 $clubId = $_GET["clubId"];
                 $name = $_POST['name'];
                 $clubDesc = $_POST['clubDesc'];

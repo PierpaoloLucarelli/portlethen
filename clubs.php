@@ -28,7 +28,20 @@
     </head>
     <body>
         <div id="body-bg">
-
+            <!-- Phone/Email -->
+            <div id="pre-header" class="background-gray-lighter">
+                <div class="container no-padding">
+                    <div class="row hidden-xs">
+                        <div class="col-sm-6 padding-vert-5">
+                            <strong>Phone:</strong>&nbsp;1-800-123-4567
+                        </div>
+                        <div class="col-sm-6 text-right padding-vert-5">
+                            <strong>Email:</strong>&nbsp;info@joomla51.com
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Phone/Email -->
             <!-- Header -->
             <div id="header">
                 <div class="container">
@@ -94,9 +107,12 @@
                             <p>Most of the images used here are available from
                                 <a href="http://www.shutterstock.com/" target="_blank">shutterstock.com</a>. Links are provided if you wish to purchase them from their copyright owners.</p>
                         </div>
-                        <!-- End Disclaimer --> <div class="col-md-4 margin-bottom-20">
+                        <!-- End Disclaimer -->
+                        <!-- Sample Menu -->
+                        <div class="col-md-4 margin-bottom-20">
 
                         </div>
+                        <!-- End Sample Menu -->
                         <!-- Contact Details -->
                         <div class="col-md-4 margin-bottom-20">
                             <h3 class="margin-bottom-10">Contact Details</h3>
@@ -116,7 +132,6 @@
                         </div>
                         <!-- End Contact Details -->
 
-                        <!-- End Sample Menu -->
                     </div>
                 </div>
             </div>
@@ -144,7 +159,7 @@
                         <!-- End Footer Menu -->
                         <!-- Copyright -->
                         <div id="copyright" class="col-md-4">
-                            <p class="pull-right">2016 Your Copyright Info &copy;</p>
+                            <p class="pull-right">Copyright info 2016 $copy;</p>
                         </div>
                         <!-- End Copyright -->
                     </div>
