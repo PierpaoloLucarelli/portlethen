@@ -1,5 +1,5 @@
 <div id="hornav" class="bottom-border-shadow">
-    <div class="container no-padding border-bottom">
+    <div class="navigation-container no-padding border-bottom">
         <div class="row">
             <div class="col-md-8 no-padding">
                 <div class="visible-lg">
