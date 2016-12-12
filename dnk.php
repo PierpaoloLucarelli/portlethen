@@ -22,10 +22,14 @@
         <link rel="stylesheet" href="assets/css/nexus.css" rel="stylesheet">
         <link rel="stylesheet" href="assets/css/responsive.css" rel="stylesheet">
         <link rel="stylesheet" href="assets/css/custom.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+        <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <!-- Google Fonts-->
         <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300" rel="stylesheet" type="text/css">
     </head>
     <body>
+
         <div id="body-bg">
             <!-- Phone/Email -->
             <div id="pre-header" class="background-gray-lighter">
@@ -58,9 +62,11 @@
             <!-- End Header -->
             <!-- Top Menu -->
             <?php  include "./includes/nav.php" ?>
+            <div class="clear"></div>
 
             <div class="container" id="map">
-                <p>Map will go here</p>
+                <div id="mapid"></div>
+                <div id="info"></div>
             </div>
 
             <div id="footer" class="background-grey">
@@ -109,6 +115,86 @@
             <script type="text/javascript" src="assets/js/slimbox2.js" charset="utf-8"></script>
             <!-- Modernizr -->
             <script src="assets/js/modernizr.custom.js" type="text/javascript"></script>
+            <script type="text/javascript">
+
+    $(document).ready(function() {
+        $.getJSON('https://nodemapsystem.azurewebsites.net/api/points', function(data) {
+            // data.forEach(function (e) {
+                // var marker = L.marker([e.start_lat, e.start_long]).addTo(mymap);
+                // marker.bindPopup("<b>"+ e.name +"</b>"+"<br>" + e.length +"<br>").openPopup();
+                // e.items.forEach(function(r){
+                //
+                // })
+                // console.log(data[0].name);
+                for (var i = 0; i < data.length; ++i) {
+
+                    var marker = L.CircleMarker.extend({
+                        options: {
+                            name: data[i].name,
+                            info: data[i].info,
+                            img_url: data[i].img_url,
+                            postcode: data[i].postcode
+                        }
+                    });
+
+                    var myMarker = new marker(([data[i].lat, data[i].long]));
+                    myMarker.bindPopup("<b>"+ data[i].name +"</b>").openPopup();
+                    myMarker.addTo(mymap).on('click', function(){
+                            $('#mapid').css("width", "70%");
+                            $("#info").show(100);
+                            $("#info").html("<div><b>"+this.options.name+"</b><br>"
+                                +this.options.info+"<br>"
+                                +"<img id='dataImg' src='"+this.options.img_url+"'><br>"
+                                +this.options.postcode+"<br></div>");
+                        });
+
+
+
+                // for routes uncomment this ***********************************
+        //      L.Routing.control({
+                //        waypoints: [
+                //          L.latLng(data[i].lat, data[i].long),
+                //          L.latLng(data[i+1].lat, data[i+1].long)
+                //          // L.latLng(data[i].start, data[i].end_long)
+                //        ]
+                //      }).addTo(mymap);
+
+                // for (var name in data[i]) {
+
+          //        // console.log(name + "=" + data[i][name]);
+                // }
+                }
+        })
+    });
+
+</script>
+            <script type="text/javascript">
+    // create and import
+    var mymap = L.map('mapid').setView([57.153513, -2.093938],11);
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+        maxZoom: 18,
+        id: 'lefkou.2bb36d63',
+        accessToken: 'pk.eyJ1IjoibGVma291IiwiYSI6ImNpbjM4ODQ2MDAwcnF3NW0xcnA5dGdpbDIifQ.oRI7UxrIVAn09kqnlxx53Q'
+    }).addTo(mymap);
+
+    mymap.on('click', function(e) {
+        $("#info").hide(100);
+        $('#mapid').css("width", "100%");
+    });
+
+    // var popup = L.popup();
+
+    // function onMapClick(e) {
+    //  popup
+    //  .setLatLng(e.latlng)
+    //  .setContent("You clicked the map at " + e.latlng.toString())
+    //  .openOn(mymap);
+    // }
+    // mymap.on('click', onMapClick);
+
+</script>
+
             <!-- End JS -->
     </body>
 </html>
